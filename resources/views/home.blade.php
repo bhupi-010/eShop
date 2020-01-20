@@ -30,7 +30,7 @@
 
 
                     <form action="{{route('products.store')}} " method="POST">
-                    @csrf
+                        @csrf
                         <div class="form-group ">
                             <label for="name">name</label>
                             <input type="text" name="name" id="" class="form-control text-white bg-dark" placeholder="enter name" aria-describedby="helpId">
@@ -38,8 +38,9 @@
                             <input type="text" name="cover_image" id="" class="form-control text-white bg-dark" placeholder="enter image location" aria-describedby="helpId">
                             <label for="price">price</label>
                             <input type="text" class="form-control text-white bg-dark" name="price" id="" aria-describedby="helpId" placeholder="enter product price">
-                           <br><div class="text-center"> <button type="submit" class="btn btn-primary">Submit</button>
-                           </div>
+                            <br>
+                            <div class="text-center"> <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
                     </form>
                 </div>
             </div>
@@ -49,52 +50,52 @@
 </div>
 
 <div class="container text-center">
-            <h1 class="display-4">List of products</h1>
+    <h1 class="display-4">List of products details:</h1>
 
-            <div>
+    <div>
 
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>name</th>
-                            <th>image</th>
-                            <th>price</th>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>name</th>
+                    <th>image</th>
+                    <th>price</th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
+                </tr>
+            </thead>
+            <tbody>
 
-                        @foreach($products as $c)
+                @foreach($products as $c)
 
-                        <tr>
-                            <td>{{$c->name}}</td>
-                             <td>{{$c->cover_image}}</td>
-                             <td>{{$c->price}}</td>
+                <tr>
+                    <td>{{$c->name}}</td>
+                    <td> <img src="{{$c->cover_image}}" alt="image not found" class="img-thumbnail"></td>
+                    <td>{{$c->price}}</td>
 
-                            <td>
-                                <a href="/products/{{$c->id}}/edit" class="btn btn-primary btn-sm">Edit</a>
-
-
-
-                                <!-- <form action="/products/{{$c->id}}" method="post"> -->
-                                <form action="{{route('products.destroy',$c->id)}}" method="post">
-                                    @csrf
-                                    @method('delete')
-
-                                    <input type="submit" value='delete'>
-                                </form>
-
-                            </td>
-                        </tr>
-
-                        @endforeach
-
-                    </tbody>
-                </table>
+                    <td>
+                        <a href="/products/{{$c->id}}/edit" class="btn btn-primary btn-sm">Edit</a>
 
 
 
-            </div>
+                        <!-- <form action="/products/{{$c->id}}" method="post"> -->
+                        <form action="{{route('products.destroy',$c->id)}}" method="post">
+                            @csrf
+                            @method('delete')
 
-        </div>
+                            <input type="submit" value='delete'>
+                        </form>
+
+                    </td>
+                </tr>
+
+                @endforeach
+
+            </tbody>
+        </table>
+
+
+
+    </div>
+
+</div>
 @endsection
