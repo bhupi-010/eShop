@@ -69,7 +69,7 @@
 
                 <tr>
                     <td>{{$c->name}}</td>
-                    <td> <img src="{{$c->cover_image}}" alt="image not found" class="img-thumbnail"></td>
+                    <td> <img src="{{$c->cover_image}}" alt="image not found" class="img-thumbnail" style="width:80px;height:80px;"></td>
                     <td>{{$c->price}}</td>
 
                     <td>
