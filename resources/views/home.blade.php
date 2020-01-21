@@ -73,8 +73,8 @@
                     <td>{{$c->price}}</td>
 
                     <td>
-                        <a href="/products/{{$c->id}}/edit" class="btn btn-primary btn-sm">Edit</a>
-
+                        <!-- <a href="/products/{{$c->id}}/edit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal" >Edit</a> -->
+                        @include('products.modal')
 
 
                         <!-- <form action="/products/{{$c->id}}" method="post"> -->
@@ -98,4 +98,8 @@
     </div>
 
 </div>
+
+
+
+
 @endsection

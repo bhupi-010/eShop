@@ -19,3 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::resource('products','productscontroller');
+
+Route::get('admin/dashboard', function () {
+    return view('admin.dashboard');
+
+});
